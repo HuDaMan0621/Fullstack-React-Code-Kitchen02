@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('RecipesCategories', {
+    return queryInterface.createTable('RecipeCategories', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -23,12 +23,20 @@ module.exports = {
         references: {
           model: 'Categories',
           key: 'id'
-        }
+        },
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
       }
     })
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('RecipesCategories');
+    return queryInterface.dropTable('RecipeCategories');
   }
 };
