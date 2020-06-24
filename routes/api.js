@@ -40,6 +40,14 @@ router.get('/recipes/:id', (req, res) => {
   })
 })
 
+db.Categories.findAll({
+  where: {
+    id: {
+      in: categories
+    }
+  }
+})
+
 router.post('/recipes', (req, res) => {
   const { name, review, description, url, likes, vegetarian, vegan, glutenfree } = req.body  //de const
 
@@ -63,3 +71,5 @@ router.post('/recipes', (req, res) => {
 })
 
 module.exports = router;
+
+//todo 4:15 0618
